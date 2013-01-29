@@ -41,9 +41,11 @@
 		$wrapper = $('<div/>'),
 		$win = $(window),
 		size = 0,
-		css = '.' + NAME + '{ position: relative; z-index: 1; }' +
+		css = '<style>' +
+			  '.' + NAME + '{ position: relative; z-index: 1; }' +
 			  '.' + NAME + '.fixed{ position: fixed; top: 0; z-index: 0; }' +
-			  '.' + NAME + '.fixed.absolute { position: absolute; }';
+			  '.' + NAME + '.fixed.absolute { position: absolute; }'
+			  '</style>';
 	
 
 	// resize watcher
@@ -86,9 +88,7 @@
 	    this.init = function()
 		{
 			
-			$('<style/>')
-				.html( css )
-				.appendTo( $('head') );
+			$('head').append( css );
 	
 			$stickies
 				.addClass( NAME )
